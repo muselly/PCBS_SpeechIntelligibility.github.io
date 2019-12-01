@@ -1,7 +1,7 @@
-#PCBS Project
-##Brainstorming and References
+# PCBS Project
+## Brainstorming and References
 Goal: something that has to do with digital signal processing and auditory stimuli (ideally music)
-###IDEA #1: Speech Intelligibility Task
+### IDEA #1: Speech Intelligibility Task
 * Use MP's recordings
 * Process them to add speech-shaped noise at 2 different frequency bands (below and above 2kHz)
 * program task to play sound + ask user to input what they heard + score the response
