@@ -1,29 +1,31 @@
 # PCBS Project
-## Brainstorming and References
-Goal: something that has to do with digital signal processing and auditory stimuli (ideally music)
-### IDEA #1: Speech Intelligibility Task
-* Use MP's recordings
-* Process them to add speech-shaped noise at 2 different frequency bands (below and above 2kHz)
-* program task to play sound + ask user to input what they heard + score the response
-* sounds are randomly selected from different sentences with random SNR ratios from 0,-3,-6,-9,-12 dB SNR (speech to noise)
-* can then trace the speech intelligibility function in function of the frequency and SNR  
+## Speech Intelligibility Frequency Importance Function 
 
-### IDEA #2: Effect of Timbre on Music Emotional perception
-* Sliding scale ratings of valence and arousal (or corresponding measures)
-* Manipulate extracts in function of timbre: change shape of spectrum (function of the spetrum shape... spectra centroid and variance of the spectral centroid)
-* Could manipulate complexity of the melody: Randomly generate melodies that are more or less complex (rhythm/number of pitches/tones per second) and see how this affects emotion ratings...
-* using what is known about effects of timbre (spectral centroid and variance of it for eg) to modify the spectral caracteristics of musical extracts in order to have different emotional responses   
-* Biblio:
-	* [It's not what you play, it's how you play it: Timbre affects perception of emotion in music] (https://doi.org/10.1080/17470210902765957) downloaded pdf
-	*  [A Cross-Cultural Investigation of the Perception of Emotion in Music: Psychophysical and Cultural Cues](https://mp.ucpress.edu/content/17/1/43)
-	*  [Modeling Listeners’ Emotional Response to Music](https://onlinelibrary.wiley.com/doi/full/10.1111/j.1756-8765.2012.01188.x) downloaded pdf
-	*  [Emotional Expression in Music Performance: Between the Performer's Intention and the Listener's Experience](https://journals.sagepub.com/doi/abs/10.1177/0305735696241007)
-	*  [A Matlab Toolbox for Music Information Retrieval](https://link.springer.com/chapter/10.1007/978-3-540-78246-9_31) in machine learning book
+### Main Goal
+The main goal of this project is to program a task to determine the relative importance of higher (above 2kHz) versus lower (below 2kHz) frequencies on speech intelligibility. Creating the stimuli involves speech signal processing resulting is varying signal-to-noise ratios (SNR) using speech shaped noise (SSN) on semantically unpredictable sentences (SUS). The program will collect participant string input (what they hear) and score their response by ccomparing it to a lexicon of French words. Finally, it'll determine the relative importance of higher versus lower frequencies for speech recognition for each participant. The entire project will be done in Python and the final output will be published on a GitHub webpage.
+
+### Sound Materials
+The speech material includes 288 semantically unpredictable sentences (SUS) of pre-defined structure and content (Raake & Katz, 2006). 
+These sentences have been previously recorded and cleaned by Manuel Pariente. 
+In this project, I will first be generating speech shaped noise based on these sentences which will be added to the sentence recordings at random phases in order to create 5 SNR conditions: 0, -3, -6, -9, -12 dB SNR. In order to determine the importance of each frequency band, there will be two frequency conditions: high frequency SNR (hiSNR) and low frequency SNR (loSNR). This will therefore involve lowpass and highpass filtering (de Cheveigné & Nelken, 2019).
+Each sentence will be randomly assigned to a SNR and frequency condition. 
+
+### Task
+Each sentence will be played once to the subject. The subject will then be asked to type what they heard before moving on to the next sentence.
+There will be 8 practice sentences in order to learn the task, and 280 test sentences (28 for each frequency and SNR condition). The subject will not be given any feedback. 
+
+### Data Analysis
+**Sentence scoring**: each correct keyword will be assigned one point. Each sentence contains four to five keywords, so total scores will be divided by the number of keywords in order to be normalized. To count the correct keywords, the subject input will be compared with the correct keywords (and their homophones). A keyword will be counted as right only if it is correclty chronologically placed relatively to the other keywords. Articles and punctuation will be ignored. 
+For each subject, speech intelligibility (scores) will be plotted in terms of SNR for each frequency condition, and the SNR value for 50% speech intelligibility will be extracted and compared between frequency conditions. I expect that lower frequencies will be more important to speech intelligibility than higher frquencies, but the final goal of this manipulation is to compare individual variability in terms of the relative importance given to each frequency band. 
+
+### Additional Notes
+This project is related to my internship work at the Laboratoire des Systèmes Perceptifs with Daniel Pressnitzer, however it may or may not be used in our final study. If this ends up being used, it will be of a slightly different form, since a similar original task has already been programmed in Matlab using a completely different toolbox. 
+
+### References
+de Cheveigné, A., & Nelken, I. (2019). Filters: when, why, and how (not) to use them. Neuron, 102(2), 280-293.  
+DePaolis, R. A., Janota, C. P., & Frank, T. (1996). Frequency importance functions for words, sentences, and continuous discourse. Journal of Speech, Language, and Hearing Research, 39(4), 714-723.  
+Raake, A., & Katz, B. F. (2006, May). US-based Method for Speech Reception Threshold Measurement in French. In LREC (pp. 2028-2033).  
+Studebaker, G. A., Pavlovic, C. V., & Sherbecoe, R. L. (1987). A frequency importance function for continuous discourse. The Journal of the Acoustical Society of America, 81(4), 1130-1138.  
 
 
-### IDEA #3 (all the other ideas)
-1. beat-tracking algorithm
-2. auditory sensitivity? (supra-threshold) (modulating loudness, timbre and collecting subjective pleasantness ratings? emotional arousal?)
-3. automated staircase audiogram
-4. program a task of emotional (arousal and valence) rating of musical extracts 
 
