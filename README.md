@@ -1,5 +1,5 @@
-# PCBS Project
-## Speech Intelligibility Frequency Importance Function 
+# PCBS Project - Speech Intelligibility Frequency Importance Function
+## Eléonore Scholler
 
 ### Main Goal
 The main goal of this project is to program a task to determine the relative importance of higher (above 2kHz) versus lower (below 2kHz) frequencies on speech intelligibility. Creating the stimuli involves speech signal processing resulting is varying signal-to-noise ratios (SNR) using braodband speech shaped noise (SSN) on narrowband digit triplets in French. The program will collect participant input digits (what they hear) and score their response. Finally, it'll determine the relative importance of higher versus lower frequencies for speech recognition for each participant. The entire project will be done in Python and the final output will be published on a GitHub webpage.
@@ -9,8 +9,6 @@ The speech material includes recordings of the nine digits in French, each one s
 I will be recording and cleaning these digit recordings.  
 In this project, I will first be generating speech shaped noise based on these sentences which will be added to the sentence recordings at random phases in order to create 5 SNR conditions: 0, -3, -6, -9, -12 dB SNR (calculated using RMS amplitude of signal). In order to determine the importance of each frequency band, there will be two frequency conditions: high frequency SNR (hi) and low frequency SNR (lo). This will therefore involve lowpass and highpass filtering (de Cheveigné & Nelken, 2019).
 Each sentence will be randomly assigned to a SNR and frequency condition. 
-
-This is the part of the project that I considered as most important and most useful to me in terms of learning expereince. It is therefore the most well-rounded. 
 
 ### Task
 Each digit triplet will be played once to the subject. The subject will then be asked to type what they heard before moving on to the next triplet.
