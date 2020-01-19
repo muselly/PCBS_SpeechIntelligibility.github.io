@@ -15,12 +15,6 @@ pathToRaw = './snd/rawDigits/'
 pathToDigits = './snd/digits/'
 
 # Signal Processing functions
-
-# NOTE: Take out if don't use
-def SNR(noisy, original):
-    """Calculates the Signal to Noise Ratio in dB based from the signal and noise inputs."""
-    return 10*np.log10((rms(original)/rms(noisy)))
-
 def filterSignal(s, cutOff_freq, btype, sf):
     """Takes a signal and applies a Butterwoth filter to it. btype: 'lowpass’ or ‘highpass’"""
     nyquist = sf/2
@@ -146,23 +140,8 @@ for file, snd in digits.items():
 
             wavfile.write(pathToStimuli + freq + '/' +  str(r) + '/' + file, sf, stim)
 
+            # Store signals in output arrays
             if freq == 'lowpass':
                 lo_stim[j][digit] = stim
             elif freq == 'highpass':
                 hi_stim[j][digit] = stim
-
-
-
-
-# Functions to generate stimulus for experiment
-def generate_triplets(numTrials):
-    """Generate digit triplets for numTrials number of trials.
-    Each digit is presented the same number of times.
-    Outputs an array of triplet arrays.
-    To be generated for each participant."""
-    n = numTrials*3/9
-    digits = np.array(range(9)) + 1
-    stimuli_set = np.repeat(digits, n)
-    stimuli_rand = np.random.choice(stimuli_set, size = len(stimuli_set), replace = False)
-    stimuli_triplets = stimuli_rand.reshape((-1, 3))
-    return stimuli_triplets
