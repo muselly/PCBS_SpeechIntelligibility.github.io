@@ -177,13 +177,11 @@ for freq in conds_freq:
 
 #Instructions
 instructions_gen = "On each trial, you will be presented with three auditory recordings of digits (any number from 1 to 9). \n \
-Please input the digits you hear in the response box. \n \
-If you do not recognized a digit, type a '0' in place of that digit.\n \
+Please input the digits you hear in the response box in the same order you heard them (eg: '123'). \n \
+If you do not recognized a digit, type a '0' in place of that digit (eg: '103').\n \
 Press SPACEBAR to start."
 instructions_trial_snd = "Listen to the three presented digits."
-instructions_trial_respond = "Please type the digits you have heard in the order you heard them (eg: '123'). Do not separate them by any character. \n \
-If you have not heard a digit, type a '0' in place of that digit (eg: '103'). \n \
-Press ENTER to move to submit your response and move to the next trial."
+instructions_trial_respond = "Enter heard digits (eg: '103'):"
 
 # EXPERIMENT
 
